@@ -1,47 +1,26 @@
 import "./App.css";
 import Button from "./components/Button";
-import Form from "./components/Form";
-import Header from "./components/header/Header";
 import { useState } from "react";
 
 const App = () => {
-  // function sayHello() {
-  //   console.log("Hello, World!");
-  // }
-  const sayHello = (name) => {
-    console.log(`Hello ${name}!`);
-  };
-
+  const [count, setCount] = useState(0);
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "center",
+        flexDirection: "column",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#282c34",
+        backgroundColor: "lightblue",
       }}
     >
-      {/* <Header />
-      <Form /> */}
-      {/* <Button
-        onClick={() => {
-          console.log("Click Me Button");
-        }}
-      >
-        <span>Click Me</span>
-      </Button>
-      <Button
-        onClick={() => {
-          console.log("Click Me Again Button");
-        }}
-      >
-        <span>Click Me Again</span>
-      </Button> */}
       <h1>Hello React</h1>
-      const [count, setCount] = useState(0)
-      <button onClick={() => setCount(count + 1)}>Increament</button>
-      <p>You clicked {count} times</p>
+      <Button text="Increment " onClick={() => setCount(count + 1)} />
+      <Button text="Decrement" onClick={() => setCount(count - 1)} />
+      <Button text="Reset" onClick={() => setCount(0)} />
+      <Button text="Double" onClick={() => setCount(count * 2)} />
+      <span>You clicked {count} times</span>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 
-const Button = ({ onClick, children }) => {
+const Button = ({ text, onClick }) => {
   return (
     <button
+      onClick={onClick}
       type="button"
       style={{
         backgroundColor: "chocolate",
@@ -10,10 +11,12 @@ const Button = ({ onClick, children }) => {
         padding: "10px",
         borderRadius: "5px",
         margin: "10px",
+        width: "100px",
+        border: "none",
+        cursor: "pointer",
       }}
-      onClick={onClick}
     >
-      {children}
+      {text}
     </button>
   );
 };
