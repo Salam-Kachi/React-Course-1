@@ -1,11 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-
 const App = () => {
   const [fetchedData, setFetchedData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const getData = async () => {
       try {
@@ -31,31 +29,18 @@ const App = () => {
   if (error) {
     return <h1>Error: {error}</h1>;
   }
-
   return (
     <>
       <h1>Hello From React</h1>
-
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {fetchedData.map((item) => (
-            <tr>
-              <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>{item.url}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ul>
+        {fetchedData.slice(0, 9).map((item) => (
+          <li key={item.id}>
+            <h2>{item.title}</h2>
+            <img src={item.url} alt={item.title} width="100px" height="100px" />
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
-
 export default App;
