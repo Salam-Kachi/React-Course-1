@@ -1,9 +1,7 @@
-import "./App.css";
-import Button from "./components/Button";
 import { useState } from "react";
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [input, setInput] = useState("");
   return (
     <div
       style={{
@@ -15,12 +13,23 @@ const App = () => {
         backgroundColor: "lightblue",
       }}
     >
-      <h1>Hello React</h1>
-      <Button text="Increment " onClick={() => setCount(count + 1)} />
-      <Button text="Decrement" onClick={() => setCount(count - 1)} />
-      <Button text="Reset" onClick={() => setCount(0)} />
-      <Button text="Double" onClick={() => setCount(count * 2)} />
-      <span>You clicked {count} times</span>
+      <h1>Hello From React</h1>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={input}
+        onChange={(e) => {
+          setInput(e.target.value);
+        }}
+        style={{
+          padding: "10px",
+          fontSize: "16px",
+          borderRadius: "5px",
+          border: "none",
+          marginBottom: "20px",
+        }}
+      />
+      <h1>Your Name is : {input} </h1>
     </div>
   );
 };
