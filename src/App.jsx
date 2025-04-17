@@ -34,7 +34,7 @@ const App = () => {
             placeholder="Enter your name"
             value={input.username}
             onChange={(e) => {
-              setInput(...input, (input.username = e.target.value));
+              setInput({ ...input, username: e.target.value });
             }}
           />
         </div>
@@ -47,7 +47,7 @@ const App = () => {
             placeholder="Enter your password"
             value={input.password}
             onChange={(e) => {
-              setInput(...input, (input.password = e.target.value));
+              setInput({ ...input, password: e.target.value });
             }}
             style={{ marginLeft: "10px" }}
           />
